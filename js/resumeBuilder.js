@@ -149,7 +149,7 @@ var bio = {
           "skills":[ "Reading" ,"Drawing" , "writting","cooking"] ,
           "contacts" : {
             "mobileNumber": "029334232",
-            "emailAddress" : "tarfa.mansour@gmial.com",
+            "emailAddress" : "tarfa.mansour@gmail.com",
             "githubUsername" : "TarfaM" ,
             "twitter":"@Tarfa",
             "location":"Riyadh"
@@ -160,14 +160,14 @@ var bio = {
       };
           var education = {
             "schools": [{
-              "name" :"AOU",
+              "name" :"Arab Open University",
               "location": "Riyadh",
                "degree":"BSc" ,
                "majors":"Information Technology and Computing - Information Technology and Computing (ITC) Pathway" ,
                "dates":"2008-2012" ,
                "url" :"www.arabou.edu.com"},
                {
-                 "name" :"PSU-E4E",
+                 "name" :"Prince Sultan University",
                  "location": "Riyadh",
                   "degree":"Track: IT Developer" ,
                   "majors":"Microsoft Certification & Training program" ,
@@ -294,15 +294,15 @@ var displayEdu = function (){
   var formattedSchoolDetails
  var formattedSchoolurl;
 
-   $("#education").append(HTMLschoolStart);
+  $("#education").append(HTMLschoolStart);
 
   for (key in education.schools){
           //console.log("--"+education.schools[key].name);//working but brelow not working
 
           formattedSchoolName =HTMLschoolName.replace("%data%" ,education.schools[key].name);
-  $(".education-entry:last").append(formattedSchoolName);
+//  $(".education-entry:last").append(formattedSchoolName);
   formattedSchoolDegree =HTMLschoolDegree.replace("%data%" ,education.schools[key].degree);
-$(".education-entry:last").append(formattedSchoolDegree);
+$(".education-entry:last").append(formattedSchoolName+formattedSchoolDegree);
         formattedSchoolDates =HTMLschoolDates.replace("%data%" ,education.schools[key].dates);
 $(".education-entry:last").append(formattedSchoolDates);
           formattedSchoolLocation =HTMLschoolLocation.replace("%data%" ,education.schools[key].location);
@@ -323,11 +323,14 @@ var displayEducOnline = function(){
   var formattedOnlineSchool;
   var formattedOnlineDates;
   var formattedOnlineURL;
+  // var node= HTMLonlineClasses.toggleClass("h3");
+  // $(".education-entry").append(node) ;
 
 
+  $("#education").append(HTMLonlineClasses) ;
+   $("#education").append(HTMLschoolStart);
   for (key in education.onlineCourses){
           //console.log("--"+education.schools[key].name);//working but brelow not working
-
           formattedOnlineTitle =HTMLonlineTitle.replace("%data%" ,education.onlineCourses[key].title);
 //  $(".education-entry:last").append(formattedOnlineTitle);
   formattedOnlineSchool =HTMLonlineSchool.replace("%data%" ,education.onlineCourses[key].school);
@@ -344,7 +347,7 @@ displayWork();
 project.display();
 displayEdu();
 displayEducOnline();
-$("#education").append(HTMLonlineClasses);
+
 // $("#education").prepend(HTMLonlineClasses);
 // createMapMarker(placeData);
 // $("#main").append(internationalizeButton);
