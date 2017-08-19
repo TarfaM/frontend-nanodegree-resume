@@ -68,18 +68,18 @@ var educ = {
 };
 //For the project
 var work = {
-"Job" : [
+"jobs" : [
     {
     "employer" : "STC"  ,
     "title" : "Senior Deevloper"  ,
-    "location" : "USA -New York"  ,
+    "location" : "Riyadh"  ,
     "dates": "2014 - Now"  ,
     "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum "
     } ,
     {
     "employer" : "TCS"  ,
     "title" : "IT Engineer"  ,
-    "location" : "KSA -Riyadh"  ,
+    "location" : "Riyadh"  ,
     "dates": "2012- 2014"  ,
     "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum  "
     }
@@ -113,10 +113,12 @@ display: function () {
   for (key in project.projects){
       console.log("--"+project.projects[key]);//working but brelow not worki
           $("#projects").append(HTMLprojectStart);
-          formattedProjectDates =HTMLprojectDates.replace("%data%" , project.projects[key].dates);
- $(".project-entry:last").append(formattedProjectDates);
           formattedProjectTitle=HTMLprojectTitle.replace("%data%" ,project.projects[key].title);
 $(".project-entry:last").append(formattedProjectTitle);
+
+          formattedProjectDates =HTMLprojectDates.replace("%data%" , project.projects[key].dates);
+ $(".project-entry:last").append(formattedProjectDates);
+
           formattedProjectDescription =HTMLprojectDescription.replace("%data%" ,project.projects[key].description);
 $(".project-entry:last").append(formattedProjectDescription);
         //formattedProjectDetails =formattedProjectTitle+formattedProjectDates  +formattedProjectDescription+formattedProjectImage;
@@ -141,7 +143,7 @@ var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImage = '<img src="%data%">';
 */
 
-var bioNew = {
+var bio = {
           "name" : "Tarfa Mansour"  ,
           "role": "Siebel Developer"  ,
           "skills":[ "Reading" ,"Drawing" , "writting","cooking"] ,
@@ -193,17 +195,17 @@ var bioNew = {
 
 
 /*
-      if (bioNew.skills.length>0)
+      if (bio.skills.length>0)
       {
 // alert("I am an alert box!");
 $("#header").append(HTMLskillsStart);
-var formattedSkill =HTMLskills.replace("%data%" ,bioNew.skills[0]);
+var formattedSkill =HTMLskills.replace("%data%" ,bio.skills[0]);
 $("#header").append(formattedSkill);
- formattedSkill =HTMLskills.replace("%data%" ,bioNew.skills[1]);
+ formattedSkill =HTMLskills.replace("%data%" ,bio.skills[1]);
  $("#header").append(formattedSkill);
- formattedSkill =HTMLskills.replace("%data%" ,bioNew.skills[2]);
+ formattedSkill =HTMLskills.replace("%data%" ,bio.skills[2]);
  $("#header").append(formattedSkill);
- formattedSkill =HTMLskills.replace("%data%" ,bioNew.skills[3]);
+ formattedSkill =HTMLskills.replace("%data%" ,bio.skills[3]);
  $("#header").append(formattedSkill);
 }
 */
@@ -221,38 +223,38 @@ $("#header").append(formattedSkill);
 
 
 // $("#header").append(formattedName);
-var formattedName=HTMLheaderName.replace("%data%" ,bioNew.name);
+var formattedName=HTMLheaderName.replace("%data%" ,bio.name);
 
-var formattedRole = HTMLheaderRole.replace("%data%" ,bioNew.role);
+var formattedRole = HTMLheaderRole.replace("%data%" ,bio.role);
 //$("#header").append(formattedRole);
 $("#header").prepend(formattedName+formattedRole);
-var Contactinfo =HTMLbioPic.replace("%data%" ,bioNew.biopic);
+var Contactinfo =HTMLbioPic.replace("%data%" ,bio.biopic);
 // $("#topContacts").append(HTMLcontactGeneric);
 $("#header").append(Contactinfo);
-var Contactinfo =HTMLwelcomeMsg.replace("%data%" ,bioNew.welcomeMessage);
+var Contactinfo =HTMLwelcomeMsg.replace("%data%" ,bio.welcomeMessage);
 $("#header").append(Contactinfo);
-var Contactinfo =HTMLmobile.replace("%data%" ,bioNew.contacts.mobileNumber);
+var Contactinfo =HTMLmobile.replace("%data%" ,bio.contacts.mobileNumber);
 $("#topContacts").append(Contactinfo);
 $("#footerContacts").append(Contactinfo);
-var Contactinfo =HTMLemail.replace("%data%" ,bioNew.contacts.emailAddress);
+var Contactinfo =HTMLemail.replace("%data%" ,bio.contacts.emailAddress);
 $("#topContacts").append(Contactinfo);
 $("#footerContacts").append(Contactinfo);
-var Contactinfo =HTMLgithub.replace("%data%" ,bioNew.contacts.githubUsername);
+var Contactinfo =HTMLgithub.replace("%data%" ,bio.contacts.githubUsername);
 $("#topContacts").append(Contactinfo);
 $("#footerContacts").append(Contactinfo);
-var Contactinfo =HTMLtwitter.replace("%data%" ,bioNew.contacts.twitter);
+var Contactinfo =HTMLtwitter.replace("%data%" ,bio.contacts.twitter);
 $("#topContacts").append(Contactinfo);
 $("#footerContacts").append(Contactinfo);
-var Contactinfo =HTMLlocation.replace("%data%" ,bioNew.contacts.location);
+var Contactinfo =HTMLlocation.replace("%data%" ,bio.contacts.location);
 
 $("#topContacts").append(Contactinfo);
 $("#footerContacts").append(Contactinfo);
 // $("#header").append(Contactinfo);
 var formattedSkill;
 $("#header").append(HTMLskillsStart);
-for (var n = 0 ; bioNew.skills.length>n;n++){
-formattedSkill =HTMLskills.replace("%data%" ,bioNew.skills[n]);
-$("#header").append(formattedSkill);}
+for (var n = 0 ; bio.skills.length>n;n++){
+formattedSkill =HTMLskills.replace("%data%" ,bio.skills[n]);
+$("#skills").append(formattedSkill);}
 
 //console.log(work.Job[0].employer);
 
@@ -265,14 +267,14 @@ var displayWork = function (){
   var formattedDates;
   var formattedDescription;
   var formattedJobDetails;
-  for (key in work.Job){
-          console.log("--"+work.Job[key].employer);//working but brelow not working
+  for (key in work.jobs){
+          console.log("--"+work.jobs[key].employer);//working but brelow not working
           $("#workExperience").append(HTMLworkStart);
-          formattedEmployer =HTMLworkEmployer.replace("%data%" ,work.Job[key].employer);
-          formattedTitle =HTMLworkTitle.replace("%data%" ,work.Job[key].title);
-          formattedLocation =HTMLworkLocation.replace("%data%" ,work.Job[key].location);
-          formattedDates =HTMLworkDates.replace("%data%" ,work.Job[key].dates);
-          formattedDescription =HTMLworkDescription.replace("%data%" ,work.Job[key].description);
+          formattedEmployer =HTMLworkEmployer.replace("%data%" ,work.jobs[key].employer);
+          formattedTitle =HTMLworkTitle.replace("%data%" ,work.jobs[key].title);
+          formattedLocation =HTMLworkLocation.replace("%data%" ,work.jobs[key].location);
+          formattedDates =HTMLworkDates.replace("%data%" ,work.jobs[key].dates);
+          formattedDescription =HTMLworkDescription.replace("%data%" ,work.jobs[key].description);
 
           formattedJobDetails =formattedEmployer + formattedTitle +formattedLocation+ formattedDates
            +formattedDescription;
@@ -291,6 +293,7 @@ var displayEdu = function (){
   var formattedSchoolMajor;
   var formattedSchoolDetails
  var formattedSchoolurl;
+
    $("#education").append(HTMLschoolStart);
 
   for (key in education.schools){
@@ -321,9 +324,10 @@ var displayEducOnline = function(){
   var formattedOnlineDates;
   var formattedOnlineURL;
 
+
   for (key in education.onlineCourses){
           //console.log("--"+education.schools[key].name);//working but brelow not working
-$("#education").append(HTMLonlineClasses);
+
           formattedOnlineTitle =HTMLonlineTitle.replace("%data%" ,education.onlineCourses[key].title);
 //  $(".education-entry:last").append(formattedOnlineTitle);
   formattedOnlineSchool =HTMLonlineSchool.replace("%data%" ,education.onlineCourses[key].school);
@@ -338,13 +342,12 @@ $("#education").append(HTMLonlineClasses);
 }
 displayWork();
 project.display();
-
 displayEdu();
-
 displayEducOnline();
-
+$("#education").append(HTMLonlineClasses);
+// $("#education").prepend(HTMLonlineClasses);
 // createMapMarker(placeData);
-$("#main").append(internationalizeButton);
+// $("#main").append(internationalizeButton);
 $("#mapDiv").append(googleMap);
 
 

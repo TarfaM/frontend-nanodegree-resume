@@ -50,7 +50,6 @@ var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
-// var HTMLonlineClasses = '<h2>Online Classes</h2>';
 var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
@@ -88,7 +87,6 @@ function logClicks(x,y) {
 
 $(document).click(function(loc) {
   // your code goes here!
-  logClicks(loc.pageX,loc.pageY);
 });
 
 
@@ -101,7 +99,6 @@ https://developers.google.com/maps/documentation/javascript/reference
 var map;    // declares a global map variable
 
 
-
 /*
 Start here! initializeMap() is called when page is loaded.
 */
@@ -110,10 +107,8 @@ function initializeMap() {
   var locations;
 
   var mapOptions = {
-    disableDefaultUI: true,
-    center: {lat: 24.7043004, lng: 46.6803644},
-    zoom: 8
-    // name ="TCS-STC project";
+    disableDefaultUI: true ,
+    zoom:8
   };
 
   /*
@@ -159,7 +154,6 @@ function initializeMap() {
   placeData is the object returned from search results containing information
   about a single location.
   */
-
   function createMapMarker(placeData) {
 
     // The next lines save location data from the search result object to local variables
@@ -185,9 +179,6 @@ function initializeMap() {
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
       // your code goes here!
-
-
-      // <!-- 24.7043004, 46.6803644 -->
     });
 
     // this is where the pin actually gets added to the map.
@@ -253,7 +244,6 @@ window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-window.addEventListener('resize', function(e) {
-  //Make sure the map bounds get updated on page resize
+//  Make sure the map bounds get updated on page resize
  map.fitBounds(mapBounds);
-});
+//});
