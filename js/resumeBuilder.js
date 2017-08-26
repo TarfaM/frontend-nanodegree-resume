@@ -29,7 +29,8 @@ var work = {
         var formattedDates;
         var formattedDescription;
         var formattedJobDetails;
-        for (var works in work.jobs) {
+        var len = work.jobs.length;
+        for (var works = 0; works < len; works++) {
             $("#workExperience").append(HTMLworkStart);
             formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[works].employer);
             formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[works].title);
@@ -63,7 +64,8 @@ var project = {
         var formattedProjectTitle;
         var formattedProjectImage;
         var formattedProjectDescription;
-        for (var proj in project.projects) {
+        var len2 = project.projects.length;
+        for (var proj = 0; proj < len2; proj++) {
             $("#projects").append(HTMLprojectStart);
             formattedProjectTitle = HTMLprojectTitle.replace("%data%", project.projects[proj].title);
             $(".project-entry:last").append(formattedProjectTitle);
@@ -73,7 +75,8 @@ var project = {
             $(".project-entry:last").append(formattedProjectDescription);
             //print more than one img
             if (project.projects[proj].images.length > 0) {
-                for (var image in project.projects[proj].images) {
+                var len3 = project.projects[proj].images.length;
+                for (var image = 0; image < len3; image++) {
                     formattedProjectImage = HTMLprojectImage.
                     replace("%data%", project.projects[proj].images[image]);
                     $(".project-entry:last").append(formattedProjectImage);
@@ -112,20 +115,13 @@ var bio = {
         welcomeMessageInfo = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
         $("#header").append(welcomeMessageInfo);
         mobileNumberInfo = HTMLmobile.replace("%data%", bio.contacts.mobile);
-        $("#topContacts").append(mobileNumberInfo);
-        $("#footerContacts").append(mobileNumberInfo);
         emailAddressInfo = HTMLemail.replace("%data%", bio.contacts.email);
-        $("#topContacts").append(emailAddressInfo);
-        $("#footerContacts").append(emailAddressInfo);
         githubUserInfo = HTMLgithub.replace("%data%", bio.contacts.github);
-        $("#topContacts").append(githubUserInfo);
-        $("#footerContacts").append(githubUserInfo);
         twitterInfo = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-        $("#topContacts").append(twitterInfo);
-        $("#footerContacts").append(twitterInfo);
         locationInfo = HTMLlocation.replace("%data%", bio.contacts.location);
-        $("#topContacts").append(locationInfo);
-        $("#footerContacts").append(locationInfo);
+        formattedContacts=mobileNumberInfo+ emailAddressInfo+githubUserInfo+twitterInfo+locationInfo;
+        $("#topContacts").append(formattedContacts);
+        $("#footerContacts").append(formattedContacts);
         $("#header").append(HTMLskillsStart);
         for (var n = 0; bio.skills.length > n; n++) {
             var formattedSkill;
@@ -179,8 +175,8 @@ var education = {
         var formattedOnlineURL;
 
         $("#education").append(HTMLschoolStart);
-
-        for (var edu in education.schools) {
+        var len4 = education.schools.length;
+        for (var edu = 0; edu < len4; edu++) {
             formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[edu].name);
             formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[edu].degree);
             $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
@@ -195,7 +191,8 @@ var education = {
         } // End education loop
         $("#education").append(HTMLonlineClasses);
         $("#education").append(HTMLschoolStart);
-        for (var eduOnline in education.onlineCourses) {
+        var len5 = education.onlineCourses.length;
+        for (var eduOnline = 0; eduOnline < len5; eduOnline++) {
             formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[eduOnline].title);
             formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[eduOnline].school);
             $(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
